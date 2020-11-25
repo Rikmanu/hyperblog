@@ -1,25 +1,54 @@
 body{
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.container {
+.post-list{
     display: grid;
-    grid-template: 3fr 1fr 1fr/repeat(4,minmax(200px,1fr)); 
-    gap: 50px 30px;
-    
+    grid-template-columns: repeat(3,minmax(100px,293px));
+    justify-content: center;
+    gap: 28px;
 }
-.item{
-    background: lightblue;
-    padding: 10px;
-    border: 1px solid red;
-   
+.post{
+    cursor: pointer;
+    position: relative;
+    display: block;
+
 }
-.item:nth-of-type(4){
-       background: blue;
-       overflow: auto;
-       display: grid;
-       grid-template: repeat(2,50%)/20% 30% 50%; 
-       padding: 0;
+.post-image{
+    margin: 0;
 }
-.item .item{
-    background: orangered;
+.post-image img{
+    width: 100%;
+    vertical-align: top;
+}
+.post-overlay{
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content:center ;
+    color: white;
+    text-align: center;
+
+}
+
+.post:hover .post-overlay{
+    display: flex;
+}
+.post-likes,
+.post-comments{
+    width: 80px;
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+@media screen and (max-width:768px){
+    .post-list{
+        gap: 3px;
+    }
 }
